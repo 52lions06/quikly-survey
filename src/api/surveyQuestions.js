@@ -1,4 +1,4 @@
-let surveyQuestions = [
+const surveyQuestions = [
   {
       question: "What franchise would you rather play a game from?",
       answers: [
@@ -87,3 +87,5 @@ let surveyQuestions = [
 ];
 
 export default surveyQuestions;
+
+//need to becareful with spelling -- spent 20 min finding an extra r in the surveyQuestions file name
