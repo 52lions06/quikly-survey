@@ -2,6 +2,8 @@ import React from 'react';
 import Questions from '../components/Questions';
 import QuestionCount from '../components/QuestionCount';
 import AnswerOptions from '../components/AnswerOptions';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+
 
 
 const Survey = (props) => {
@@ -20,16 +22,26 @@ function renderAnswerOptions(key) {
   }
 
     return (
-       <div className="Survey">
+        <ReactCSSTransitionGroup
+        className="container"
+        component="div"
+        transitionName="fade"
+        transitionEnterTimeout={800}
+        transitionLeaveTimeout={500}
+        transitionAppear
+        transitionAppearTimeout={500}
+      >
+       <div key={props.questionId}>
          <QuestionCount
            counter={props.questionId}
            total={props.questionTotal}
          />
          <Questions content={props.question} />
-         <ul className="answer-Options">
+         <ul className="answerOptions">
            {props.answerOptions.map(renderAnswerOptions)}
          </ul>
        </div>
+       </ReactCSSTransitionGroup>
     );
   }
 
@@ -46,3 +58,5 @@ function renderAnswerOptions(key) {
   export default Survey;
 
   //presentational component 
+
+  //Here we’ve wrapped the survey element in a ReactCSSTransitionGroup element. Child elements of ReactCSSTransitionGroup must be provided with a unique key attribute. 

@@ -2,7 +2,8 @@ import React from 'react';
 
 const AnswerOptions = (props) => {
     return (
-      <li className="answerOptions">
+      // changed className
+      <li className="answerOption">   
         <input
           type="radio"
           className="radioCustomButton"

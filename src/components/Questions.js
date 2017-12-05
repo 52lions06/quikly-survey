@@ -2,7 +2,7 @@ import React from 'react';
 
 const Questions = (props) => {
     return (
-      <h2 className="questions">{props.content}</h2>
+      <h2 className="question">{props.content}</h2>
     );
   }
 
