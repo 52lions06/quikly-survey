@@ -99,3 +99,5 @@ export default App;
 
 
 //to explain how shuffleArray function works https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
+
+// line 38 -- setAnswer() -- We’re setting the answer based on the user’s selection, which is the first instance of changing state based on user actions. The value being passed in as the answer parameter on line 1, is the value of the selected answer. Which in our case will be either Nintendo, Microsoft or Sony.
