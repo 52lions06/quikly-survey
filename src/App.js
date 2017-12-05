@@ -66,7 +66,8 @@ class App extends Component {
     if (this.state.questionId < surveyQuestions.length) {
         setTimeout(() => this.setNextQuestion(), 300);
       } else {
-        // do nothing for now
+        // calling setResults after 300ms. The delay is a UX decision, user has a moment to see the visual feedback indicating that their selection has been made.
+        setTimeout(() => this.setResults(this.getResults()), 300);
       }
   }
 
@@ -89,6 +90,27 @@ class App extends Component {
 
     return array;
   };
+  
+  // This function calculates which answer type (Sony, Microsoft or Nintendo in our case) has the highest number - aka the survey result
+  getResults() {
+    const answersCount = this.state.answersCount;
+    const answersCountKeys = Object.keys(answersCount);
+    //Then on line 4, answersCountValues is mapping over this array to return an array of the values.
+    const answersCountValues = answersCountKeys.map((key) => answersCount[key]);
+    //Then we can get the highest number of that array with Math.max.apply, this is assigned to the maxAnswerCount variable on line 5. 
+    const maxAnswerCount = Math.max.apply(null, answersCountValues);
+
+    return answersCountKeys.filter((key) => answersCount[key] === maxAnswerCount);
+  }
+
+  //This function receives the result from getResults which is an array, and checks to see if that array has one value
+  setResults (result) {
+    if (result.length === 1) {
+      this.setState({ result: result[0] });
+    } else {
+      this.setState({ result: 'Undetermined' });
+    }
+  }
 
   render() {
     return (
