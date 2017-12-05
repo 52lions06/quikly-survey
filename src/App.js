@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
-import Questions from './components/Questions';
+import Survey from './components/Survey';
 import surveyQuestions from './api/surveyQuestions';
 import './App.css';
 
@@ -58,7 +58,14 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Quikly Survey</h1>
         </header>
-        <Questions content="What is your favorite food?" />
+        <Survey
+          answer={this.state.answer}
+          answerOptions={this.state.answerOptions}
+          questionId={this.state.questionId}
+          question={this.state.question}
+          questionTotal={surveyQuestions.length}
+          onAnswerSelected={this.handleAnswerSelected}
+        />
       </div>
     );
   }

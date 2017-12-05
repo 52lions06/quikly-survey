@@ -8,7 +8,7 @@ const Survey = (props) => {
 
 function renderAnswerOptions(key) {
     return (
-      <AnswerOption
+      <AnswerOptions
         key={key.content}
         answerContent={key.content}
         answerType={key.type}
