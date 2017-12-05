@@ -26,7 +26,7 @@ function renderAnswerOptions(key) {
            total={props.questionTotal}
          />
          <Questions content={props.question} />
-         <ul className="answerOptions">
+         <ul className="answer-Options">
            {props.answerOptions.map(renderAnswerOptions)}
          </ul>
        </div>
