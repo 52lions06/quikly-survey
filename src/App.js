@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import update from 'react-addons-update';
 import logo from './logo.svg';
 import Survey from './components/Survey';
 import surveyQuestions from './api/surveyQuestions';
@@ -7,6 +8,8 @@ import './App.css';
 class App extends Component {
    constructor(props) {
     super(props);
+    this.handleAnswerSelected = this.handleAnswerSelected.bind(this);
+
     this.state = {
      counter: 0,
      questionId: 1,
@@ -30,6 +33,27 @@ class App extends Component {
       question: surveyQuestions[0].question,
       answerOptions: shuffledAnswerOptions[0]
     });
+  }
+
+  setUserAnswer(answer) {
+    const updatedAnswersCount = update(this.state.answersCount, {
+      [answer]: {$apply: (currentValue) => currentValue + 1}
+    });
+    this.setState({
+      answersCount: updatedAnswersCount,
+      answer: answer
+    });
+  }
+
+// updated state and selecting an answer
+// This function is currently performing two tasks; setting the answer and then setting the next question. 
+  handleAnswerSelected(event) {
+    this.setUserAnswer(event.currentTarget.value);
+    if (this.state.questionId < surveyQuestions.length) {
+        setTimeout(() => this.setNextQuestion(), 300);
+      } else {
+        // do nothing for now
+      }
   }
 
   shuffleArray(array) {
