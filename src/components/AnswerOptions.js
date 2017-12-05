@@ -1,8 +1,8 @@
 import React from 'react';
 
-const AnswerOption = (props) => {
+const AnswerOptions = (props) => {
     return (
-      <li className="answerOption">
+      <li className="answerOptions">
         <input
           type="radio"
           className="radioCustomButton"
@@ -20,14 +20,14 @@ const AnswerOption = (props) => {
     );
   }
 
-  // AnswerOption.propTypes = {
+  // AnswerOptions.propTypes = {
   //   answerType: React.PropTypes.string.isRequired,
   //   answerContent: React.PropTypes.string.isRequired,
   //   answer: React.PropTypes.string.isRequired,
   //   onAnswerSelected: React.PropTypes.func.isRequired
   // };
 
-  export default AnswerOption;
+  export default AnswerOptions;
 
   //stateless component
   //container component -- How we answer each question
