@@ -1,6 +1,6 @@
 import React from 'react';
 
-  function QuestionCount(props) {
+  const QuestionCount = (props) => {
     return (
       <div className="questionCount">
         Question <span>{props.counter}</span> of <span>{props.total}</span>
@@ -14,3 +14,6 @@ import React from 'react';
   // };
 
   export default QuestionCount;
+
+  //stateless component
+  //container component -- counts which question I am on 
