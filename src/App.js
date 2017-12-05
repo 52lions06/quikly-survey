@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import update from 'react-addons-update';
 import logo from './logo.svg';
+import Results from './components/Results';
 import Survey from './components/Survey';
 import surveyQuestions from './api/surveyQuestions';
 import './App.css';
@@ -112,14 +113,9 @@ class App extends Component {
     }
   }
 
-  render() {
+  renderSurvey() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Quikly Survey</h1>
-        </header>
-        <Survey
+       <Survey
           answer={this.state.answer}
           answerOptions={this.state.answerOptions}
           questionId={this.state.questionId}
@@ -127,6 +123,26 @@ class App extends Component {
           questionTotal={surveyQuestions.length}
           onAnswerSelected={this.handleAnswerSelected}
         />
+    );
+  }
+
+  renderResult() {
+    return (
+      <Results surveyResult={this.state.result} />
+    );
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <header className="App-header">
+          <img src={logo} className="App-logo" alt="logo" />
+          <h1 className="App-title">Quikly Survey</h1>
+        </header>
+       
+        {/*App will only show results if everyhing is done or will show the quiz*/}
+        {this.state.result ? this.renderResult() : this.renderSurvey()}
+
       </div>
     );
   }

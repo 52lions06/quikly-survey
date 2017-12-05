@@ -2,13 +2,13 @@ import React from 'react';
 function Result(props) {
     return (
       <div className="result">
-        You prefer <strong>{props.quizResult}</strong>!
+        You prefer <strong>{props.surveyResult}</strong>!
       </div>
     );
   }
 
   // Result.propTypes = {
-  //   quizResult: React.PropTypes.string.isRequired,
+  //   surveyResult: React.PropTypes.string.isRequired,
   // };
 
   export default Result;
