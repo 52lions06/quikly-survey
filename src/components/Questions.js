@@ -13,6 +13,6 @@ const Questions = (props) => {
   export default Questions;
 
   //stateless component 
-  //container component -- creates the questions
+  //presentational component  -- creates the questions
   
   //find a npm-proptypes since PropTypes is deprecated 

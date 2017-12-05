@@ -16,4 +16,4 @@ import React from 'react';
   export default QuestionCount;
 
   //stateless component
-  //container component -- counts which question I am on 
+  //presentational component  -- counts which question I am on 

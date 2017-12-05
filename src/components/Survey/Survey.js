@@ -5,13 +5,27 @@ import AnswerOptions from '../components/AnswerOptions';
 
 
 const Survey = (props) => {
+
+function renderAnswerOptions(key) {
+    return (
+      <AnswerOption
+        key={key.content}
+        answerContent={key.content}
+        answerType={key.type}
+        answer={props.answer}
+        questionId={props.questionId}
+        onAnswerSelected={props.onAnswerSelected}
+      />
+    );
+  }
+
     return (
        <div className="Survey">
          <QuestionCount
            counter={props.questionId}
            total={props.questionTotal}
          />
-         <Question content={props.question} />
+         <Questions content={props.question} />
          <ul className="answerOptions">
            {props.answerOptions.map(renderAnswerOptions)}
          </ul>
@@ -30,3 +44,5 @@ const Survey = (props) => {
   // };
 
   export default Survey;
+
+  //presentational component 
