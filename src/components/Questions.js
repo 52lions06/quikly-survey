@@ -6,11 +6,13 @@ import React from 'react';
     );
   }
 
-  Questions.propTypes = {
-    content: React.PropTypes.string.isRequired
-  };
+  // Questions.propTypes = {
+  //   content: React.PropTypes.string.isRequired
+  // };
 
   export default Questions;
 
   //stateless component 
   //container component -- creates the questions
+  
+  //find a npm-proptypes since PropTypes is deprecated 
