@@ -31,3 +31,5 @@ const AnswerOption = (props) => {
 
   //stateless component
   //container component -- How we answer each question
+
+  //This component consists of a list item with a radio button and label. There is one new concept introduced here on line 10; the checked property is a comparison statement. This value will be a boolean (true or false) based on whether the answer selected is equal to the answer option type.
