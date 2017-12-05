@@ -45,6 +45,20 @@ class App extends Component {
     });
   }
 
+    // goes after the updated answer function 
+    // Here we increment the counter and questionId state, by first creating the variables, then assigning them via setState.
+  setNextQuestion() {
+    const counter = this.state.counter + 1;
+    const questionId = this.state.questionId + 1;
+    this.setState({
+      counter: counter,
+      questionId: questionId,
+      question: surveyQuestions[counter].question,
+      answerOptions: surveyQuestions[counter].answers,
+      answer: ''
+    });
+  }
+
 // updated state and selecting an answer
 // This function is currently performing two tasks; setting the answer and then setting the next question. 
   handleAnswerSelected(event) {
@@ -55,6 +69,7 @@ class App extends Component {
         // do nothing for now
       }
   }
+
 
   shuffleArray(array) {
     let currentIndex = array.length, temporaryValue, randomIndex;
@@ -101,3 +116,5 @@ export default App;
 //to explain how shuffleArray function works https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
 
 // line 38 -- setAnswer() -- We’re setting the answer based on the user’s selection, which is the first instance of changing state based on user actions. The value being passed in as the answer parameter on line 1, is the value of the selected answer. Which in our case will be either Nintendo, Microsoft or Sony.
+
+// react-addons-update creates a new object which merges this.state.answerCount and the new answerCount value
